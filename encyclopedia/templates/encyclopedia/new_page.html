@@ -1,0 +1,37 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block form %}
+   
+{% endblock %}
+
+
+{% block new_task %}
+    <a href="{% url 'new_page' %}">  New Page </a>  <br>
+    <a href="{% url 'random_page' %}">  Random Page </a>
+{% endblock %}
+
+{% block body %}
+
+    {% if page %}
+        <h3>pruebaa</h3>
+    {% endif %}
+
+    <h1>{{ Title_principal }}</h1>
+
+    <h2>{{Subtitle}}</h2>
+
+    <form action="" method="POST">
+
+        {% csrf_token %}
+        {{form.as_p}}
+
+            <button> save </button> 
+        {{ form_n }}
+    </form>
+
+    {{page|safe}}      
+{% endblock %}
